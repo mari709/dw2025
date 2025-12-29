@@ -1,0 +1,138 @@
+:root {
+	/* Colores principales OKLCH */
+	--primary-color: oklch(53% 0.21 339);
+	--secondary-color: oklch(90.847% 0.04258 270.923);
+	--text-color: oklch(14% 0.01 17);
+
+	/*Tamaños de fuente responsivos */
+	--small-font: clamp(0.8rem, 0.7rem + 0.5vw, 1rem);
+	--base-font: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+	--big-font: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+
+	/* Espaciado */
+	--space-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+	--space-med: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+	--space-xl: clamp(2rem, 1.8rem + 1vw, 4rem);
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+	font-size: var(--small-font);
+	color: var(--text-color);
+
+}
+.main-container {
+	container-type: inline-size;
+	container-name: principal;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--space-med);
+}
+h2 {
+	margin-bottom: var(--space-med);
+}
+.banner {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.promo-section {
+	background-color: color-mix(in oklab, var(--primary-color) 95%, var(--secondary-color));
+	color: #fff;
+	text-align: center;
+	padding: var(--space-med);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
+
+.promo-section p {
+	font-size: var(--small-font);
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+.promo-section:has(#countdown:hover) p span{
+	font-size: var(--base-font);
+}
+
+.promo-section p span {
+	transition: all 0.3s ease;
+}
+#countdown {
+	font-size: var(--big-font);
+	font-weight: bold;
+}
+
+.faq {
+
+	padding: var(--space-med);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #f3f6ff;
+}
+
+.faq-item {
+	background-color: #fff;
+	display: flex;
+	width: 90%;
+	max-width: 700px;
+	margin: 10px 0;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.faq-question {
+	position: relative;
+	/*width: 100%;*/
+	padding: 10px;
+	border: none;
+	text-align: left;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: var(--small-font);
+	background-color: color-mix(in oklab, var(--primary-color) 5%, var(--secondary-color));
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+:is(.faq-question:hover) {
+	background-color: color-mix(in oklab, var(--primary-color) 15%, var(--secondary-color));
+	color: var(--primary-color);
+}
+
+.faq-answer {
+	display: none;
+	margin-top: 10px;
+	padding: var(--space-med);
+
+}
+
+.faq-answer.visible {
+	display: block;
+}
+
+.arrow {
+	transition: transform 0.3s ease;
+	margin-left: 10px;
+}
+
+.arrow.rotated {
+	transform: rotate(180deg);
+}
+
+footer {
+	background-color: var(--primary-color);
+	color: #fff;
+	text-align: center;
+	padding: var(--space-med);
+}
